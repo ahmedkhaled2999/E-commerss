@@ -1,0 +1,205 @@
+<h1 class="text-3xl font-bold text-green-400">Register Now:</h1>
+@if(errormessege){
+<div
+  class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+  role="alert"
+>
+  <span class="font-medium">{{ errormessege }}</span>
+</div>
+}
+
+<form
+  [formGroup]="regester"
+  (ngSubmit)="sendData()"
+  class="max-w-md mx-auto h-[50vh] md:h-[100vh] flex justify-center items-center p-2"
+>
+  <div class="w-full">
+    <div class="relative z-0 w-full mb-5 group">
+      <input
+        formControlName="name"
+        type="text"
+        name="floating_name"
+        id="floating_name"
+        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+      />
+      <label
+        for="floating_name"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >name address</label
+      >
+    </div>
+
+    @if(regester.get('name')?.errors && regester.get('name')?.touched) { @if
+    (regester.get('name')?.errors?.['required']) {
+    <div
+      class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+      role="alert"
+    >
+      <span class="font-medium">Reqired</span>
+    </div>
+    }@else if (regester.get('name')?.errors?.['minlength']) {
+    <div
+      class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+      role="alert"
+    >
+      <span class="font-medium">minlength!</span> PLEASE ENTER AT LEST 3
+      CHRATRAR AND MAX IS 10
+    </div>
+    } @else if (regester.get('name')?.errors?.['maxlength']) {
+    <div
+      class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+      role="alert"
+    >
+      <span class="font-medium">maxlength!</span> please enter 10 chracter
+    </div>
+    } }
+
+    <div class="relative z-0 w-full mb-5 group">
+      <input
+        formControlName="email"
+        type="email"
+        name="floating_email"
+        id="floating_email"
+        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+      />
+      <label
+        for="floating_email"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >Email address</label
+      >
+    </div>
+    @if (regester.get('email')?.errors && regester.get('email')?.touched) { @if
+    (regester.get('email')?.errors?.['required']) {
+    <div
+      class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+      role="alert"
+    >
+      <span class="font-medium"> email is Reqired </span>
+    </div>
+    }@else if (regester.get('email')?.errors?.['email']) {
+    <div
+      class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+      role="alert"
+    >
+      <span class="font-medium">please enter valid email</span>
+    </div>
+    } }
+
+    <div class="relative z-0 w-full mb-5 group">
+      <input
+        formControlName="password"
+        type="password"
+        name="floating_password"
+        id="floating_password"
+        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+      />
+      <label
+        for="floating_password"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >Password</label
+      >
+    </div>
+    @if (regester.get('password')?.errors && regester.get('password')?.touched)
+    { @if (regester.get('password')?.errors?.['required']) {
+    <div
+      class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+      role="alert"
+    >
+      <span class="font-medium"> password is Reqired </span>
+    </div>
+    }@else if (regester.get('password')?.errors?.['pattern']) {
+    <div
+      class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+      role="alert"
+    >
+      <span class="font-medium">must be at least 6 chars</span>
+    </div>
+    } }
+    <div class="relative z-0 w-full mb-5 group">
+      <input
+        formControlName="rePassword"
+        type="password"
+        name="repeat_repassowrd"
+        id="floating_repeat_repassowrd"
+        class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+        placeholder=" "
+      />
+      <label
+        for="floating_repeat_repassowrd"
+        class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+        >Confirm repassowrd
+      </label>
+    </div>
+    <!-- @if (regester.get('rePassword')?.errors && regester.get('rePassword')?.touched) {
+     @if (regester.get('rePassword')?.errors?.['required']) {
+  <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+    <span class="font-medium"> rePassword is Reqired </span>
+  </div>}@else if (regester.get('rePassword')?.errors?.['pattern']) {
+    <div class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+      <span class="font-medium">please enter same rePassword</span>
+    </div>
+  }
+  } -->
+    @if (regester.errors?.['misMatch']) {
+    <div
+      class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+      role="alert"
+    >
+      <span class="font-medium">please enter same rePassword</span>
+    </div>
+    }
+    <div class="w-full md:gap-6">
+      <div class="relative z-0 w-full mb-5 group">
+        <input
+          formControlName="phone"
+          type="tel"
+          name="floating_phone"
+          id="floating_phone"
+          class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+          placeholder=" "
+        />
+        <label
+          for="floating_phone"
+          class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+          >Phone number (123-456-7890)</label
+        >
+      </div>
+      @if (regester.get('phone')?.errors && regester.get('phone')?.touched) {
+      @if (regester.get('phone')?.errors?.['required']) {
+      <div
+        class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <span class="font-medium"> phone is Reqired </span>
+      </div>
+      }@else if (regester.get('phone')?.errors?.['pattern']) {
+      <div
+        class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+        role="alert"
+      >
+        <span class="font-medium">please enter valid phone</span>
+      </div>
+      } }
+    </div>
+    <div class="flex items-center gap-3 flex-wrap">
+      <button
+        [disabled]="callingapi"
+        type="submit"
+        class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+      >
+        @if (isloadin) {
+        <i class="fa-solid fa-spinner fa-spin"></i>
+        }@else{Submit}
+      </button>
+      <p class="w-full text-center">
+        if you have already email
+        <a class="font-bold uppercase text-green-400" routerLink="/login"
+          >log in</a
+        >
+      </p>
+    </div>
+  </div>
+</form>

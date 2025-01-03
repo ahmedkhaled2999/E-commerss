@@ -1,0 +1,99 @@
+@if(errormessege){
+<div
+  class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+  role="alert"
+>
+  <span class="font-medium">{{ errormessege }}</span>
+</div>
+}
+<form [formGroup]="cheackout" (ngSubmit)="countion()" class="max-w-md mx-auto h-[100vh] flex justify-center items-center flex-wrap">
+  <div class="w-full">
+  <div class="relative z-0 w-full mb-5 group">
+    <input
+      formControlName="details"
+      type="details"
+      name="floating_details"
+      id="floating_details"
+      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+      placeholder=" "
+    />
+    <label
+      for="floating_details"
+      class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >details </label
+    >
+  </div>
+  @if (cheackout.get('details')?.errors && cheackout.get('details')?.touched) {
+  @if (cheackout.get('details')?.errors?.['required']) {
+  <div
+    class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+    role="alert"
+  >
+    <span class="font-medium"> details is Reqired </span>
+  </div>
+  } }
+
+  <!-- ***************************** -->
+  <div class="relative z-0 w-full mb-5 group">
+    <input
+      formControlName="phone"
+      type="phone"
+      name="floating_phone"
+      id="floating_phone"
+      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+      placeholder=" "
+    />
+    <label
+      for="floating_phone"
+      class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >phone</label
+    >
+  </div>
+  @if (cheackout.get('phone')?.errors && cheackout.get('phone')?.touched)
+  { @if (cheackout.get('phone')?.errors?.['required']) {
+  <div
+    class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+    role="alert"
+  >
+    <span class="font-medium"> password is Reqired </span>
+  </div>
+  }@else if (cheackout.get('phone')?.errors?.['pattern']) {
+  <div
+    class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+    role="alert"
+  >
+    <span class="font-medium"
+      >please enter phone max lengt 7 T LEAST ONE CARACTER CAPITAL LIKE THISE
+      AHMED2</span
+    >
+  </div>
+  } }
+  <!-- 8888888888888888888888888888888888888888 -->
+  <div class="relative z-0 w-full mb-5 group">
+    <input
+      formControlName="city"
+      type="city"
+      name="floating_city"
+      id="floating_city"
+      class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer"
+      placeholder=" "
+    />
+    <label
+      for="floating_city"
+      class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+      >city</label
+    >
+  </div>
+  @if (cheackout.get('city')?.errors && cheackout.get('city')?.touched)
+  { @if (cheackout.get('city')?.errors?.['required']) {
+  <div
+    class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400"
+    role="alert"
+  >
+    <span class="font-medium"> password is Reqired </span>
+  </div>
+  }
+  }
+  <button class="btn uppercase">contion</button>
+</div>
+</form>

@@ -1,0 +1,11 @@
+<h2 class="text-3xl mb-4">shop pouplur categoires</h2>
+<owl-carousel-o [options]="customOptions">
+  @for (item of gatogrelist; track $index) {
+
+  <ng-template carouselSlide>
+    <img [src]="item.image"   [routerLink]="'/gategoriesdetails/' + item._id" class="h-[200px] object-cover" />
+    <span>{{ item.name }}</span>
+  </ng-template>
+
+  }
+</owl-carousel-o>

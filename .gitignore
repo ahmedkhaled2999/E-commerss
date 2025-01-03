@@ -2,9 +2,11 @@
 
 # Compiled output
 /dist
+/build
 /tmp
 /out-tsc
 /bazel-out
+chunk-*js
 
 # Node
 /node_modules

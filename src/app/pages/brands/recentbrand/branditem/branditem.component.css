@@ -1,0 +1,9 @@
+.box{
+  transition: all 1s;
+  border: solid green 1px ;
+  border-radius: 10px;
+}
+.box:hover{
+transform: scale(1.1);
+
+}

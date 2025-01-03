@@ -1,0 +1,7 @@
+<div class="flex flex-wrap justify-center items-center ">
+@for (item of allbrands; track $index) {
+  <div class="w-full md:w-1/2 lg:w-1/6 p-4 items-center flex justify-center">
+    <app-branditem [allbran]="item"></app-branditem>
+  </div>
+}
+</div>

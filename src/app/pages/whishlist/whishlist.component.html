@@ -1,0 +1,8 @@
+<div class="">
+  <h2 class="text-3xl text-green-500">my whish list</h2>
+  <div>
+@for (item of whishListiteam; track $index) {
+<app-whishitem [wish]="item" (click)="findindex($index)" (idwhich)="addtocartwish($event)" (delelistWish)="deletespicific($event)"></app-whishitem>
+}
+  </div>
+</div>

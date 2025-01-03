@@ -1,0 +1,33 @@
+<div class="flex items-center flex-wrap">
+  <div class="w-2/4 lg:w-1/4">
+    <owl-carousel-o [options]="customOptions">
+      @for (slide of productdetails.images; track $index) {
+
+      <ng-template carouselSlide>
+        <img [src]="slide" />
+      </ng-template>
+
+      }
+    </owl-carousel-o>
+  </div>
+  <div class="w-2/4 lg:w-3/4">
+    <h1 class="text-3xl mb-3 font-extrabold">{{ productdetails.title }}</h1>
+    <p>{{ productdetails.description }}</p>
+
+    <span class="text-green-400">{{ productdetails.category.name }}</span>
+    <div class="flex justify-between">
+      <p>{{ productdetails.price }}</p>
+      <p>
+        {{ productdetails.ratingsAverage }}
+        <i class="fa fa-star text-yellow-200"></i>
+        <i (click)="adddelete(productdetails.id)"  [class.text-red-600]="addwhishred"   class=" ms-4 fa-solid fa-heart"></i>
+      </p>
+    </div>
+    <button (click)="addproducttocart(productdetails.id)" class="btn mt-5">
+      @if (isloading) {
+
+      <i class="fa fa-spinner fa-spin"></i>
+      }@else { add to cart }
+    </button>
+  </div>
+</div>

@@ -1,0 +1,45 @@
+<div
+  class="w-full product max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+>
+  <a [routerLink]="'/productdetails/' + product.id">
+    <img
+      class="p-8 rounded-t-lg"
+      [src]="product.imageCover"
+      alt="product image"
+    />
+
+    <div class="px-5 pb-5">
+      <h5
+        class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white"
+      >
+        {{ product.title.split(" ").splice(0, 2).join("  ") }}
+      </h5>
+
+      <div class="flex items-center mt-2.5 mb-5">
+        <span
+          class="bg-blue-100 text-blue-800 text-xs font-semibold px-2.5 py-0.5 rounded dark:bg-blue-200 dark:text-blue-800 ms-3"
+          >{{ product.ratingsAverage }}</span
+        >
+      </div>
+    </div>
+  </a>
+  <div class="flex items-center justify-between">
+    <span class="text-3xl ms-2 font-bold text-gray-900 dark:text-white"
+      >${{ product.price }}</span
+    >
+    <button (click)="addwhish(product.id)">
+      <i
+        [class.text-red-700]="redwhish == true"
+        [class.text-red-700]="whishid == product.id"
+        class="me-5 fa-solid fa-heart"
+      ></i>
+    </button>
+  </div>
+  <div class="w-full text-center mb-3">
+    <button (click)="addcart(product.id)" class="btn  mx-auto w-[80%]">
+      @if (islading && product.id == cartide) {
+      <i class="fa fa-spinner fa-spin"></i>
+      } @else { Add to cart to shop }
+    </button>
+  </div>
+</div>

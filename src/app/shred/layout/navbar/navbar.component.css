@@ -1,0 +1,3 @@
+.active{
+  @apply transition-all bg-green-400 p-2 rounded-lg text-white
+}
